@@ -16,7 +16,7 @@
     <!-- 1. NAVIGATION -->
     <header class="retro-header py-4 sticky top-0 z-40">
       <nav class="flex items-center justify-between" aria-label="Main Navigation">
-        <a href="index.html" class="font-retro-display text-2xl font-black tracking-tighter uppercase focus:outline-none">
+        <a href="index.html" class="font-retro-display text-2xl tracking-tight uppercase focus:outline-none">
           CT
         </a>
 
@@ -40,11 +40,11 @@
         </button>
       </nav>
 
-      <!-- Mobile Dropdown Menu -->
+      <!-- Mobile Dropdown Menu (Centered Items) -->
       <div id="mobile-menu" class="hidden sm:hidden pt-4 pb-2 border-t retro-divider mt-4">
-        <div class="flex flex-col space-y-3 text-sm">
-          <a href="index.html#gallery" class="retro-nav-link block py-2">Work</a>
-          <a href="bio.html" class="retro-nav-link block py-2" aria-current="page">Bio</a>
+        <div class="flex flex-col items-center text-center space-y-3 text-sm">
+          <a href="index.html#gallery" class="retro-nav-link block w-full py-2">Work</a>
+          <a href="bio.html" class="retro-nav-link block w-full py-2" aria-current="page">Bio</a>
           <a href="booknow.html" class="btn-retro-primary w-full py-2.5 text-xs">
             Book Now
           </a>
@@ -69,7 +69,7 @@
           </div>
           <!-- Bio Text -->
           <div class="md:col-span-7 lg:col-span-8 flex flex-col justify-center space-y-4">
-            <h1 class="font-retro-display text-4xl sm:text-5xl font-black tracking-tight">Tim Arndt</h1>
+            <h1 class="font-retro-display text-4xl sm:text-5xl tracking-tight">Tim Arndt</h1>
             <p class="font-retro-mono text-xs sm:text-sm font-bold text-terracotta uppercase tracking-wider">
               Tattoo artist based in Denver, CO
             </p>
@@ -102,8 +102,11 @@
             @catfish.tim
           </a>
         </div>
-        <div>
-          <p class="font-retro-mono text-xs">© Catfish Tim Tattoos. All rights reserved.</p>
+        <div class="text-center sm:text-right">
+          <p class="font-retro-mono text-xs inline-flex items-center justify-center gap-1.5 leading-none">
+            <span class="text-sm leading-none">©</span>
+            <span>Catfish Tim Tattoos. All rights reserved.</span>
+          </p>
         </div>
       </div>
     </footer>

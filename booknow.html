@@ -16,7 +16,7 @@
     <!-- 1. NAVIGATION -->
     <header class="retro-header py-4 sticky top-0 z-40">
       <nav class="flex items-center justify-between" aria-label="Main Navigation">
-        <a href="index.html" class="font-retro-display text-2xl font-black tracking-tighter uppercase focus:outline-none">
+        <a href="index.html" class="font-retro-display text-2xl tracking-tight uppercase focus:outline-none">
           CT
         </a>
 
@@ -40,11 +40,11 @@
         </button>
       </nav>
 
-      <!-- Mobile Dropdown Menu -->
+      <!-- Mobile Dropdown Menu (Centered Items) -->
       <div id="mobile-menu" class="hidden sm:hidden pt-4 pb-2 border-t retro-divider mt-4">
-        <div class="flex flex-col space-y-3 text-sm">
-          <a href="index.html#gallery" class="retro-nav-link block py-2">Work</a>
-          <a href="bio.html" class="retro-nav-link block py-2">Bio</a>
+        <div class="flex flex-col items-center text-center space-y-3 text-sm">
+          <a href="index.html#gallery" class="retro-nav-link block w-full py-2">Work</a>
+          <a href="bio.html" class="retro-nav-link block w-full py-2">Bio</a>
           <a href="booknow.html" class="btn-retro-primary w-full py-2.5 text-xs" aria-current="page">
             Book Now
           </a>
@@ -57,7 +57,7 @@
       <section id="booking" class="py-12 md:py-20 border-b retro-divider">
         <div class="max-w-4xl mx-auto">
           
-          <h1 class="font-retro-display text-4xl sm:text-5xl font-black tracking-tight mb-4">Book an Appointment</h1>
+          <h1 class="font-retro-display text-4xl sm:text-5xl tracking-tight mb-4">Book an Appointment</h1>
           <p class="text-sm sm:text-base text-espresso-muted mb-8 leading-relaxed">
             I will respond to your request within 2 business days to confirm your tattoo appointment. A consultation with me is required before appointment is confirmed. Please note that I am not always able to respond to all requests. Make sure you check your junk/spam folder. Once again, this form does <strong class="text-espresso">NOT</strong> confirm your appointment. I will get back to you first!
           </p>
@@ -65,7 +65,7 @@
           <!-- POLICIES SECTION -->
           <div class="retro-panel p-6 sm:p-8 mb-12 space-y-6">
             <div>
-              <h2 class="font-retro-serif text-2xl font-bold mb-3 text-espresso">Tattoo Policy</h2>
+              <h2 class="font-retro-serif text-2xl mb-3 text-espresso">Tattoo Policy</h2>
               <ul class="space-y-1.5 font-retro-mono text-xs sm:text-sm text-espresso">
                 <li>• $150/hour</li>
                 <li>• $100 Minimum</li>
@@ -75,7 +75,7 @@
             </div>
             
             <div class="border-t retro-divider pt-6">
-              <h2 class="font-retro-serif text-2xl font-bold mb-3 text-espresso">Deposit Policy</h2>
+              <h2 class="font-retro-serif text-2xl mb-3 text-espresso">Deposit Policy</h2>
               <ul class="space-y-3 text-sm text-espresso leading-relaxed">
                 <li>• All appointments require a <strong class="text-terracotta">NON-REFUNDABLE $100 CASH deposit</strong>. No deposit, no appointment.</li>
                 <li>• The deposit comes off the total cost of the tattoo.</li>
@@ -88,11 +88,11 @@
             </div>
           </div>
 
-          <!-- INTAKE FORM (Web3Forms) -->
-          <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+          <!-- INTAKE FORM (Web3Forms Inline AJAX) -->
+          <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
             
             <!-- Web3Forms Configuration -->
-            <input type="hidden" name="access_key" value="e6c3aa35-32be-4317-a3f7-567957848303">
+            <input type="hidden" name="access_key" value="d377fe27-5a27-424c-823c-fffc9158d97b">
             <input type="hidden" name="subject" value="New Tattoo Appointment Request - Catfish Tim Tattoos">
             <input type="hidden" name="from_name" value="Catfish Tim Website">
             <!-- Spam Honeypot -->
@@ -179,9 +179,14 @@
               *Please send an email to <a href="mailto:catfish.tim.tattoos@gmail.com" class="underline text-terracotta font-bold">catfish.tim.tattoos@gmail.com</a> with any reference images and photos for your design.
             </p>
 
+            <!-- Inline Error Message (Hidden by default) -->
+            <p id="form-error" class="hidden font-retro-mono text-xs font-bold text-terracotta">
+              Something went wrong. Please try again.
+            </p>
+
             <!-- Submit Button -->
             <div>
-              <button type="submit" class="btn-retro-primary w-full sm:w-auto px-10 py-4 text-sm">
+              <button id="submit-btn" type="submit" class="btn-retro-primary w-full sm:w-auto px-10 py-4 text-sm">
                 Submit Request
               </button>
             </div>
@@ -196,7 +201,7 @@
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 font-retro-mono text-xs">
           <a href="mailto:catfish.tim.tattoos@gmail.com" class="flex items-center gap-2 text-espresso hover:text-terracotta transition-colors">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             catfish.tim.tattoos@gmail.com
           </a>
           <a href="https://instagram.com/catfish.tim" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-espresso hover:text-terracotta transition-colors">
@@ -204,12 +209,43 @@
             @catfish.tim
           </a>
         </div>
-        <div>
-          <p class="font-retro-mono text-xs">© Catfish Tim Tattoos. All rights reserved.</p>
+        <div class="text-center sm:text-right">
+          <p class="font-retro-mono text-xs inline-flex items-center justify-center gap-1.5 leading-none">
+            <span class="text-sm leading-none">©</span>
+            <span>Catfish Tim Tattoos. All rights reserved.</span>
+          </p>
         </div>
       </div>
     </footer>
 
+  </div>
+
+  <!-- SUBMISSION CONFIRMATION POPUP MODAL -->
+  <div id="confirmation-modal" class="lightbox-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="confirmation-title">
+    <div class="lightbox-frame relative max-w-md w-full p-6 sm:p-8 text-center">
+      <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-[#4A7C7E] border-2 border-[#231A16] flex items-center justify-center text-[#F4EFE6]">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <h2 id="confirmation-title" class="font-retro-display text-3xl text-espresso mb-3">
+        Request Sent!
+      </h2>
+      <p class="text-sm sm:text-base text-espresso leading-relaxed mb-4">
+        Thanks for reaching out! Tim will review your idea and respond within <strong class="text-terracotta">2 business days</strong>.
+      </p>
+      <p class="font-retro-mono text-xs text-espresso-muted mb-6">
+        Remember to check your spam/junk folder, and send any reference photos to <span class="underline text-espresso">catfish.tim.tattoos@gmail.com</span>.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button id="close-confirmation-btn" type="button" class="btn-retro-primary w-full sm:w-auto px-6 py-3 text-xs">
+          Got It
+        </button>
+        <a href="index.html" class="retro-nav-link text-xs py-2 px-4">
+          Back to Work →
+        </a>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

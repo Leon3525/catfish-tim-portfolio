@@ -124,19 +124,100 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxPrev.addEventListener('click', () => showSlide(currentIndex - 1));
     lightboxNext.addEventListener('click', () => showSlide(currentIndex + 1));
 
-    // Close when clicking outside the image frame
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         closeLightbox();
       }
     });
 
-    // Keyboard navigation (Escape, Left Arrow, Right Arrow)
     document.addEventListener('keydown', (e) => {
       if (lightbox.classList.contains('hidden')) return;
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
       if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
+    });
+  }
+
+  /* ========================================================================
+     4. WEB3FORMS INLINE SUBMISSION & CONFIRMATION POPUP
+     ======================================================================== */
+  const bookingForm = document.getElementById('booking-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const formError = document.getElementById('form-error');
+  const confirmationModal = document.getElementById('confirmation-modal');
+  const closeConfirmationBtn = document.getElementById('close-confirmation-btn');
+
+  if (bookingForm && confirmationModal) {
+    const openConfirmation = () => {
+      confirmationModal.classList.remove('hidden');
+      confirmationModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeConfirmation = () => {
+      confirmationModal.classList.add('hidden');
+      confirmationModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    };
+
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (formError) formError.classList.add('hidden');
+
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(bookingForm);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200) {
+          bookingForm.reset();
+          openConfirmation();
+        } else {
+          if (formError) {
+            formError.textContent = result.message || 'Something went wrong. Please try again or email Tim directly.';
+            formError.classList.remove('hidden');
+          }
+        }
+      } catch (error) {
+        if (formError) {
+          formError.textContent = 'Network error. Please check your connection and try again.';
+          formError.classList.remove('hidden');
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    });
+
+    if (closeConfirmationBtn) {
+      closeConfirmationBtn.addEventListener('click', closeConfirmation);
+    }
+
+    confirmationModal.addEventListener('click', (e) => {
+      if (e.target === confirmationModal) {
+        closeConfirmation();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!confirmationModal.classList.contains('hidden') && e.key === 'Escape') {
+        closeConfirmation();
+      }
     });
   }
 });
