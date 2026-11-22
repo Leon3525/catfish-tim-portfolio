@@ -1,0 +1,316 @@
+/* ==========================================================================
+   1. GOOGLE FONTS IMPORT
+   - Shrikhand: Groovy, psychedelic 1970s display font for Hero & Headers
+   - Plus Jakarta Sans: Clean, warm geometric sans for readable body copy
+   - Space Mono: Vintage receipt/flash-sheet monospace for tags & labels
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shrikhand&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ==========================================================================
+   2. COLOR PALETTE & DESIGN TOKENS
+   ========================================================================== */
+:root {
+  --bg-parchment: #F4EFE6;
+  --bg-card: #EFE8DC;
+  --ink-espresso: #231A16;
+  --ink-muted: #5C4D44;
+  --accent-turquoise: #4A7C7E;
+  --accent-turquoise-dark: #386163;
+  --accent-terracotta: #C85A32;
+  --accent-terracotta-dark: #A84623;
+  --border-subtle: rgba(35, 26, 22, 0.22);
+
+  --font-display: 'Shrikhand', cursive, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* ==========================================================================
+   3. BASE STYLES & VINTAGE PAPER TEXTURE
+   ========================================================================== */
+html {
+  background-color: var(--bg-parchment);
+  color: var(--ink-espresso);
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--bg-parchment);
+  color: var(--ink-espresso);
+  position: relative;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--accent-terracotta);
+  color: var(--bg-parchment);
+}
+
+/* Visible fixed SVG vintage paper grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.11;
+  mix-blend-mode: multiply;
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noiseFilter)' opacity='0.8'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   4. TYPOGRAPHY CLASSES
+   ========================================================================== */
+.font-retro-display {
+  font-family: var(--font-display);
+  font-weight: 400; /* Shrikhand is naturally ultra-bold at 400 */
+  letter-spacing: 0.01em;
+  color: var(--ink-espresso);
+  /* Layered 70s poster drop-shadow (Terracotta + Turquoise) */
+  text-shadow: 
+    3px 3px 0px var(--accent-terracotta),
+    6px 6px 0px rgba(74, 124, 126, 0.35);
+}
+
+.font-retro-serif {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.font-retro-mono {
+  font-family: var(--font-mono);
+}
+
+.text-espresso {
+  color: var(--ink-espresso);
+}
+
+.text-espresso-muted {
+  color: var(--ink-muted);
+}
+
+.text-turquoise {
+  color: var(--accent-turquoise);
+}
+
+.text-terracotta {
+  color: var(--accent-terracotta);
+}
+
+/* ==========================================================================
+   5. NAVIGATION & DIVIDERS
+   ========================================================================== */
+.retro-header {
+  background-color: rgba(244, 239, 230, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--ink-espresso);
+}
+
+.retro-divider {
+  border-color: var(--border-subtle);
+}
+
+.retro-nav-link {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-espresso);
+  transition: color 0.2s ease;
+}
+
+.retro-nav-link:hover,
+.retro-nav-link[aria-current="page"] {
+  color: var(--accent-terracotta);
+}
+
+/* ==========================================================================
+   6. TACTILE 70s BUTTONS (HARD OFFSET SHADOWS)
+   ========================================================================== */
+.btn-retro-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-turquoise);
+  color: var(--bg-parchment);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 2px solid var(--ink-espresso);
+  border-radius: 6px;
+  box-shadow: 4px 4px 0px var(--ink-espresso);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-retro-primary:hover {
+  background-color: var(--accent-terracotta);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--ink-espresso);
+}
+
+.btn-retro-primary:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--ink-espresso);
+}
+
+/* ==========================================================================
+   7. GALLERY CARDS, CTA CARD & POLICY BOXES
+   ========================================================================== */
+.tattoo-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--ink-espresso);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0px rgba(35, 26, 22, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: zoom-in;
+}
+
+.tattoo-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--accent-turquoise);
+  border-color: var(--ink-espresso);
+}
+
+/* 21st Slot Custom Booking CTA Card */
+.tattoo-cta-card {
+  background-color: var(--accent-terracotta);
+  color: var(--bg-parchment);
+  border: 2px solid var(--ink-espresso);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0px var(--ink-espresso);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.tattoo-cta-card:hover {
+  background-color: var(--accent-turquoise);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--ink-espresso);
+}
+
+/* Policies Container & Form Inputs */
+.retro-panel {
+  background-color: var(--bg-card);
+  border: 2px solid var(--ink-espresso);
+  border-radius: 12px;
+  box-shadow: 5px 5px 0px rgba(35, 26, 22, 0.15);
+}
+
+.retro-input {
+  background-color: #FAF7F2;
+  color: var(--ink-espresso);
+  border: 2px solid var(--ink-espresso);
+  border-radius: 6px;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.retro-input:focus {
+  outline: none;
+  border-color: var(--accent-turquoise);
+  box-shadow: 3px 3px 0px var(--accent-turquoise);
+}
+
+/* ==========================================================================
+   8. VIEW TOGGLE & CAROUSEL MODE
+   ========================================================================== */
+.view-toggle-group {
+  display: inline-flex;
+  background-color: var(--bg-card);
+  border: 2px solid var(--ink-espresso);
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px var(--ink-espresso);
+  overflow: hidden;
+}
+
+.view-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-espresso);
+  background-color: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.view-toggle-btn.active {
+  background-color: var(--accent-turquoise);
+  color: var(--bg-parchment);
+}
+
+/* Horizontal Scroll-Snap Carousel Mode */
+.gallery-carousel-mode {
+  display: flex !important;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding: 0.5rem 10% 1.5rem 10%;
+  scrollbar-width: none;
+}
+
+.gallery-carousel-mode::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-carousel-mode > div,
+.gallery-carousel-mode > a {
+  flex: 0 0 82%;
+  max-width: 440px;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 640px) {
+  .gallery-carousel-mode {
+    padding: 0.5rem 22% 1.5rem 22%;
+  }
+  .gallery-carousel-mode > div,
+  .gallery-carousel-mode > a {
+    flex: 0 0 60%;
+  }
+}
+
+.carousel-nav-btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background-color: var(--bg-parchment);
+  color: var(--ink-espresso);
+  border: 2px solid var(--ink-espresso);
+  box-shadow: 3px 3px 0px var(--ink-espresso);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.carousel-nav-btn:hover {
+  background-color: var(--accent-terracotta);
+  color: var(--bg-parchment);
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px var(--ink-espresso);
+}
+
+/* ==========================================================================
+   9. LIGHTBOX MODAL
+   ========================================================================== */
+.lightbox-backdrop {
+  background-color: rgba(24, 18, 15, 0.92);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox-frame {
+  background-color: var(--bg-parchment);
+  border: 2px solid var(--ink-espresso);
+  border-radius: 12px;
+  box-shadow: 8px 8px 0px var(--accent-terracotta);
+}

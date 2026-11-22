@@ -6,315 +6,279 @@
   <title>Catfish Tim Tattoos - Custom & Traditional Tattooing</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white text-zinc-900 font-sans antialiased selection:bg-zinc-900 selection:text-white">
+<body class="antialiased">
 
   <!-- MAIN WRAPPER (Max-width 1200px constraint) -->
   <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- 1. NAVIGATION -->
-    <header class="py-4 border-b border-zinc-200 sticky top-0 bg-white/95 backdrop-blur-sm z-50">
+    <header class="retro-header py-4 sticky top-0 z-40">
       <nav class="flex items-center justify-between" aria-label="Main Navigation">
-        <a href="#" class="text-xl font-black tracking-tighter uppercase focus:outline-none focus:ring-2 focus:ring-zinc-900 rounded-sm">
+        <a href="index.html" class="font-retro-display text-2xl font-black tracking-tighter uppercase focus:outline-none">
           CT
         </a>
-        <div class="flex items-center gap-6 text-sm font-semibold tracking-wide">
-          <a href="#gallery" class="hover:text-zinc-600 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-900 rounded-sm">Work</a>
-          <a href="#about" class="hover:text-zinc-600 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-900 rounded-sm">About</a>
-          <a href="#booking" class="bg-zinc-900 text-white px-4 py-2 rounded-md hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2">
+
+        <!-- Desktop Menu -->
+        <div class="hidden sm:flex items-center gap-6 text-sm">
+          <a href="index.html#gallery" class="retro-nav-link">Work</a>
+          <a href="bio.html" class="retro-nav-link">Bio</a>
+          <a href="booknow.html" class="btn-retro-primary px-4 py-2 text-xs">
             Book Now
           </a>
         </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-btn" type="button" class="sm:hidden p-2 -mr-2 text-espresso focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden sm:hidden pt-4 pb-2 border-t retro-divider mt-4">
+        <div class="flex flex-col space-y-3 text-sm">
+          <a href="index.html#gallery" class="retro-nav-link block py-2">Work</a>
+          <a href="bio.html" class="retro-nav-link block py-2">Bio</a>
+          <a href="booknow.html" class="btn-retro-primary w-full py-2.5 text-xs">
+            Book Now
+          </a>
+        </div>
+      </div>
     </header>
 
     <main>
       <!-- 2. HERO SECTION -->
-      <section class="py-16 md:py-24 text-center border-b border-zinc-200">
-        <span class="block text-lg md:text-xl font-serif italic text-zinc-600 mb-2">
+      <section class="py-16 md:py-24 text-center border-b retro-divider">
+        <span class="block text-lg md:text-xl font-retro-serif italic text-espresso-muted mb-2">
           Handmade Tattoos by
         </span>
-        <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter uppercase mb-8 leading-none">
+        <h1 class="font-retro-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight uppercase mb-8 leading-none">
           Catfish Tim
         </h1>
-        <a href="#booking" class="inline-block bg-zinc-900 text-white text-base md:text-lg font-bold uppercase tracking-wider px-8 py-4 rounded-md hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2">
-          Book Now
-        </a>
-      </section>
-
-      <!-- SUB-NAVIGATION / CATEGORY FILTER BAR -->
-      <section class="py-6 border-b border-zinc-200 overflow-x-auto" aria-label="Tattoo categories">
-        <div class="flex justify-start md:justify-center items-center gap-6 sm:gap-10 text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap min-w-max px-2">
-          <span class="text-zinc-900 cursor-default">Custom</span>
-          <span class="text-zinc-400">·</span>
-          <span class="text-zinc-900 cursor-default">American Traditional</span>
-          <span class="text-zinc-400">·</span>
-          <span class="text-zinc-900 cursor-default">Cartoons</span>
-          <span class="text-zinc-400">·</span>
-          <span class="text-zinc-900 cursor-default">Black and Gray</span>
+        <div class="flex flex-col items-center gap-5">
+          <a href="booknow.html" class="btn-retro-primary text-sm md:text-base px-8 py-4">
+            Book Now
+          </a>
+          <a href="#gallery" class="retro-nav-link inline-flex items-center gap-2 text-xs">
+            Work <span>↓</span>
+          </a>
         </div>
       </section>
 
-      <!-- 4. BIO SECTION -->
-      <section id="about" class="py-12 md:py-20 border-b border-zinc-200">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-          <!-- Image Placeholder -->
-          <div class="md:col-span-5 lg:col-span-4">
-            <div class="aspect-square bg-zinc-100 rounded-2xl overflow-hidden border border-zinc-200 flex items-center justify-center">
-              <img 
-                src="https://via.placeholder.com/600x600?text=Tim+Photo+Placeholder" 
-                alt="Tim Arndt tattooing a client in his shop" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-              >
-            </div>
-          </div>
-          <!-- Bio Text -->
-          <div class="md:col-span-7 lg:col-span-8 flex flex-col justify-center space-y-4">
-            <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Tim Arndt</h2>
-            <p class="text-sm font-medium text-zinc-500 uppercase tracking-wider">Tattoo artist based in Denver, CO</p>
-            <p class="text-base sm:text-lg text-zinc-700 leading-relaxed">
-              I have been tattooing since 2020. Formally trained in painting, I specialize in anything from minimalist designs to bold, custom pieces.
-            </p>
-            <p class="text-base sm:text-lg text-zinc-700 leading-relaxed">
-              My goal is to create thoughtful tattoos tailored to each client's unique vision. I'm passionate about bringing ideas to life through tattoos and delivering a clean and professional experience for all of my clients.
-            </p>
-            <div class="pt-2">
-              <a href="#gallery" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-zinc-900 hover:text-zinc-600 transition-colors">
-                Work <span>↓</span>
-              </a>
-            </div>
-          </div>
+      <!-- SUB-NAVIGATION / CATEGORY BAR -->
+      <section class="py-6 border-b retro-divider overflow-x-auto" aria-label="Tattoo categories">
+        <div class="flex justify-start md:justify-center items-center gap-6 sm:gap-10 font-retro-mono text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap min-w-max px-2">
+          <span class="text-espresso cursor-default">Custom</span>
+          <span class="text-terracotta">✦</span>
+          <span class="text-espresso cursor-default">American Traditional</span>
+          <span class="text-terracotta">✦</span>
+          <span class="text-espresso cursor-default">Cartoons</span>
+          <span class="text-terracotta">✦</span>
+          <span class="text-espresso cursor-default">Black and Gray</span>
         </div>
       </section>
 
-      <!-- 3. 3x5 GALLERY GRID -->
-      <section id="gallery" class="py-12 md:py-20 border-b border-zinc-200">
-        <h2 class="sr-only">Portfolio Gallery</h2>
-        <!-- Mobile: 1 col | Tablet: 2 cols | Desktop: 3 cols -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <!-- 3. GALLERY SECTION (GRID / CAROUSEL TOGGLE) -->
+      <section id="gallery" class="py-12 md:py-16 border-b retro-divider">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+          <h2 class="font-retro-mono text-xs uppercase tracking-widest text-espresso-muted font-bold">
+            Selected Flash &amp; Custom Work (20)
+          </h2>
+
+          <!-- Grid / Carousel View Switcher -->
+          <div class="view-toggle-group" role="group" aria-label="Gallery view toggle">
+            <button id="btn-grid-view" type="button" class="view-toggle-btn active">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+              </svg>
+              Grid
+            </button>
+            <button id="btn-carousel-view" type="button" class="view-toggle-btn">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 17h16M7 7v10m10-10v10"/>
+              </svg>
+              Carousel
+            </button>
+          </div>
+        </div>
+
+        <!-- Gallery Track (Switches between 3x7 Grid & Horizontal Carousel) -->
+        <div id="gallery-track" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           
-          <!-- Repeatable Image Slot (15 Total Slots) -->
           <!-- Slot 1 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+01" alt="Tattoo portfolio piece 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/albatross.PNG" alt="albatross" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 2 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+02" alt="Tattoo portfolio piece 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/avohombre.PNG" alt="avohombre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 3 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+03" alt="Tattoo portfolio piece 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/banquet.PNG" alt="banquet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 4 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+04" alt="Tattoo portfolio piece 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/beerskeletoncowboy.PNG" alt="beerskeletoncowboy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 5 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+05" alt="Tattoo portfolio piece 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/bomberbunny.PNG" alt="bomberbunny" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 6 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+06" alt="Tattoo portfolio piece 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/bombergirl.PNG" alt="bombergirl" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 7 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+07" alt="Tattoo portfolio piece 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/boobs.PNG" alt="boobs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 8 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+08" alt="Tattoo portfolio piece 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/calvinandhobbes.PNG" alt="calvinandhobbes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 9 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+09" alt="Tattoo portfolio piece 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/canpipe.PNG" alt="canpipe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 10 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+10" alt="Tattoo portfolio piece 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/cowboy.PNG" alt="cowboy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 11 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+11" alt="Tattoo portfolio piece 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/cowboykermit.PNG" alt="cowboykermit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 12 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+12" alt="Tattoo portfolio piece 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/cowboyskull.PNG" alt="cowboyskull" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 13 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+13" alt="Tattoo portfolio piece 13" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/fry.PNG" alt="fry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 14 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+14" alt="Tattoo portfolio piece 14" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/itchy.PNG" alt="itchy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
           <!-- Slot 15 -->
-          <div class="aspect-square bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 group">
-            <img src="https://via.placeholder.com/600x600?text=Tattoo+15" alt="Tattoo portfolio piece 15" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/melonpus.PNG" alt="melonpus" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
           </div>
+          <!-- Slot 16 -->
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/pbrsmash.PNG" alt="pbrsmash" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <!-- Slot 17 -->
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/r2d2.PNG" alt="r2d2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <!-- Slot 18 -->
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/skeletoncowboy.PNG" alt="skeletoncowboy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <!-- Slot 19 -->
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/stormtrooper.PNG" alt="stormtrooper" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+          <!-- Slot 20 -->
+          <div class="tattoo-card aspect-square overflow-hidden group">
+            <img src="pics/tradwolf.PNG" alt="tradwolf" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          </div>
+
+          <!-- Slot 21 (Retro Booking CTA Card) -->
+          <a href="booknow.html" class="tattoo-cta-card aspect-square p-8 flex flex-col items-center justify-center text-center group">
+            <span class="font-retro-mono text-xs uppercase tracking-widest mb-2 opacity-90">Slot #21</span>
+            <h3 class="font-retro-serif text-3xl sm:text-4xl font-black leading-tight mb-3">
+              Your Idea Next
+            </h3>
+            <p class="text-sm opacity-90 mb-6 max-w-[220px]">
+              Got a custom piece or flash idea in mind? Let's get it on skin.
+            </p>
+            <span class="font-retro-mono text-xs font-bold uppercase tracking-wider underline underline-offset-4">
+              Book Appointment →
+            </span>
+          </a>
 
         </div>
-      </section>
 
-      <!-- 5. INTAKE FORM & POLICIES -->
-      <section id="booking" class="py-12 md:py-20 border-b border-zinc-200">
-        <div class="max-w-4xl mx-auto">
-          
-          <h2 class="text-3xl sm:text-4xl font-black tracking-tight mb-4">Book an Appointment</h2>
-          <p class="text-sm sm:text-base text-zinc-600 mb-8 leading-relaxed">
-            I will respond to your request within 2 business days to confirm your tattoo appointment. A consultation with me is required before appointment is confirmed. Please note that I am not always able to respond to all requests. Make sure you check your junk/spam folder. Once again, this form does <strong class="text-zinc-900">NOT</strong> confirm your appointment. I will get back to you first!
-          </p>
-
-          <!-- POLICIES SECTION (Positioned Above Form as Requested) -->
-          <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 sm:p-8 mb-12 space-y-6">
-            <div>
-              <h3 class="text-xl font-bold mb-2">Tattoo Policy</h3>
-              <ul class="space-y-1 text-sm text-zinc-700">
-                <li>• $150/hour</li>
-                <li>• $100 Minimum</li>
-                <li>• CASH ONLY</li>
-                <li>• No Minors</li>
-              </ul>
-            </div>
-            
-            <div class="border-t border-zinc-200 pt-6">
-              <h3 class="text-xl font-bold mb-2">Deposit Policy</h3>
-              <ul class="space-y-3 text-sm text-zinc-700 leading-relaxed">
-                <li>• All appointments require a <strong>NON-REFUNDABLE $100 CASH deposit</strong>. No deposit, no appointment.</li>
-                <li>• The deposit comes off the total cost of the tattoo.</li>
-                <li>• Reschedules & Cancellations must be made 48 hours in advance of your appointment or your deposit is forfeited. <strong>THERE ARE NO EXCEPTIONS.</strong></li>
-                <li>• Deposits are good for one reschedule. Have to reschedule more than once, a new deposit is required.</li>
-                <li>• If you are late to your appointment by 30 minutes or more, your deposit is forfeited.</li>
-                <li>• No call / No show also means your deposit is forfeited and you will have to look for a new artist.</li>
-                <li>• Multiple sessions will have the deposit applied to the last session. Unused deposits will be forfeited after 3 months.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- INTAKE FORM (Web3Forms ready) -->
-          <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-            
-            <!-- Web3Forms Access Key (Replace with Tim's Key) -->
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-
-            <!-- First & Last Name -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label for="first_name" class="block text-sm font-bold text-zinc-900 mb-2">First Name <span class="text-red-500">*</span></label>
-                <input type="text" id="first_name" name="first_name" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all">
-              </div>
-              <div>
-                <label for="last_name" class="block text-sm font-bold text-zinc-900 mb-2">Last Name <span class="text-red-500">*</span></label>
-                <input type="text" id="last_name" name="last_name" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all">
-              </div>
-            </div>
-
-            <!-- Email & Phone -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label for="email" class="block text-sm font-bold text-zinc-900 mb-2">Email <span class="text-red-500">*</span></label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all">
-              </div>
-              <div>
-                <label for="phone" class="block text-sm font-bold text-zinc-900 mb-2">Phone Number <span class="text-red-500">*</span></label>
-                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all">
-              </div>
-            </div>
-
-            <!-- DOB & Budget -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label for="dob" class="block text-sm font-bold text-zinc-900 mb-2">Date of Birth <span class="text-red-500">*</span></label>
-                <input type="date" id="dob" name="dob" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all">
-              </div>
-              <div>
-                <label for="budget" class="block text-sm font-bold text-zinc-900 mb-2">Budget <span class="text-red-500">*</span></label>
-                <input type="text" id="budget" name="budget" placeholder="e.g. $200 - $400" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all">
-              </div>
-            </div>
-
-            <!-- Proposed Date & Flash or Custom Select -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label for="appointment_date" class="block text-sm font-bold text-zinc-900 mb-2">Propose a date for your appointment <span class="text-red-500">*</span></label>
-                <input type="date" id="appointment_date" name="appointment_date" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all">
-              </div>
-              <div>
-                <label for="design_type" class="block text-sm font-bold text-zinc-900 mb-2">Flash or Custom? <span class="text-red-500">*</span></label>
-                <select id="design_type" name="design_type" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all bg-white">
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="Flash">Flash</option>
-                  <option value="Custom">Custom</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Flash Description -->
-            <div>
-              <label for="flash_description" class="block text-sm font-bold text-zinc-900 mb-2">If you are interested in a flash design, describe it below</label>
-              <textarea id="flash_description" name="flash_description" rows="3" class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all"></textarea>
-            </div>
-
-            <!-- Custom Description -->
-            <div>
-              <label for="custom_description" class="block text-sm font-bold text-zinc-900 mb-2">If you want a custom design, give a detailed description of your idea <span class="text-red-500">*</span></label>
-              <textarea id="custom_description" name="custom_description" rows="4" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all"></textarea>
-            </div>
-
-            <!-- Size & Placement -->
-            <div>
-              <label for="placement" class="block text-sm font-bold text-zinc-900 mb-2">Approximate size and placement on the body <span class="text-red-500">*</span></label>
-              <input type="text" id="placement" name="placement" placeholder="e.g. 4x4 inches on outer forearm" required class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all">
-            </div>
-
-            <!-- Other Notes -->
-            <div>
-              <label for="notes" class="block text-sm font-bold text-zinc-900 mb-2">Other Notes</label>
-              <textarea id="notes" name="notes" rows="3" class="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-zinc-900 outline-none transition-all"></textarea>
-            </div>
-
-            <!-- Reference Image Notice -->
-            <p class="text-xs sm:text-sm text-zinc-500 italic">
-              *Please send an email to <a href="mailto:catfish.tim.tattoos@gmail.com" class="underline text-zinc-800">catfish.tim.tattoos@gmail.com</a> with any reference images and photos for your design.
-            </p>
-
-            <!-- Submit Button -->
-            <div>
-              <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-zinc-900 text-white font-bold uppercase tracking-wider rounded-lg hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 transition-colors">
-                Submit
-              </button>
-            </div>
-
-          </form>
+        <!-- Carousel Prev / Next Controls (Visible only in Carousel Mode) -->
+        <div id="carousel-controls" class="hidden flex items-center justify-center gap-4 mt-4">
+          <button id="carousel-prev" type="button" class="carousel-nav-btn" aria-label="Previous tattoo">
+            ←
+          </button>
+          <span class="font-retro-mono text-xs uppercase tracking-widest text-espresso-muted">
+            Swipe or Use Arrows
+          </span>
+          <button id="carousel-next" type="button" class="carousel-nav-btn" aria-label="Next tattoo">
+            →
+          </button>
         </div>
       </section>
     </main>
 
-    <!-- 6. FOOTER -->
-    <footer class="py-10 text-sm text-zinc-600">
+    <!-- FOOTER -->
+    <footer class="py-10 text-sm text-espresso-muted">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <!-- Contact Links -->
-        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          <a href="mailto:catfish.tim.tattoos@gmail.com" class="flex items-center gap-2 hover:text-zinc-900 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-900 rounded-sm">
+        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 font-retro-mono text-xs">
+          <a href="mailto:catfish.tim.tattoos@gmail.com" class="flex items-center gap-2 text-espresso hover:text-terracotta transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             catfish.tim.tattoos@gmail.com
           </a>
-          <a href="https://instagram.com/catfish.tim" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-zinc-900 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-900 rounded-sm">
+          <a href="https://instagram.com/catfish.tim" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-espresso hover:text-terracotta transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             @catfish.tim
           </a>
         </div>
-        <!-- Copyright -->
         <div>
-          <p class="text-xs text-zinc-500">© Catfish Tim Tattoos. All rights reserved.</p>
+          <p class="font-retro-mono text-xs">© Catfish Tim Tattoos. All rights reserved.</p>
         </div>
       </div>
     </footer>
 
   </div>
 
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-label="Tattoo image preview">
+    <div class="lightbox-frame relative max-w-2xl w-full p-4 sm:p-6 flex flex-col items-center">
+      <!-- Top Bar: Counter & Close -->
+      <div class="w-full flex items-center justify-between mb-3">
+        <span id="lightbox-counter" class="font-retro-mono text-xs font-bold uppercase tracking-widest text-espresso-muted">
+          1 / 20
+        </span>
+        <button id="lightbox-close" type="button" class="font-retro-mono text-xs font-bold uppercase tracking-wider px-3 py-1.5 border-2 border-[#231A16] rounded hover:bg-[#C85A32] hover:text-[#F4EFE6] transition-colors">
+          Close [ESC]
+        </button>
+      </div>
+
+      <!-- Image Container -->
+      <div class="w-full aspect-square max-h-[65vh] bg-[#EFE8DC] border-2 border-[#231A16] rounded-lg overflow-hidden flex items-center justify-center">
+        <img id="lightbox-img" src="" alt="" class="w-full h-full object-contain">
+      </div>
+
+      <!-- Bottom Bar: Title, Prev/Next & Book CTA -->
+      <div class="w-full flex flex-wrap items-center justify-between gap-4 mt-4">
+        <div class="flex items-center gap-2">
+          <button id="lightbox-prev" type="button" class="carousel-nav-btn" aria-label="Previous image">←</button>
+          <button id="lightbox-next" type="button" class="carousel-nav-btn" aria-label="Next image">→</button>
+          <span id="lightbox-title" class="font-retro-mono text-xs sm:text-sm font-bold uppercase tracking-wider ml-2 text-espresso">
+            ALBATROSS
+          </span>
+        </div>
+
+        <a href="booknow.html" class="btn-retro-primary px-4 py-2 text-xs">
+          Book Similar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

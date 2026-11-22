@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio - Catfish Tim Tattoos</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+  <!-- MAIN WRAPPER (Max-width 1200px constraint) -->
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- 1. NAVIGATION -->
+    <header class="retro-header py-4 sticky top-0 z-40">
+      <nav class="flex items-center justify-between" aria-label="Main Navigation">
+        <a href="index.html" class="font-retro-display text-2xl font-black tracking-tighter uppercase focus:outline-none">
+          CT
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden sm:flex items-center gap-6 text-sm">
+          <a href="index.html#gallery" class="retro-nav-link">Work</a>
+          <a href="bio.html" class="retro-nav-link underline underline-offset-4 decoration-2" aria-current="page">Bio</a>
+          <a href="booknow.html" class="btn-retro-primary px-4 py-2 text-xs">
+            Book Now
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-btn" type="button" class="sm:hidden p-2 -mr-2 text-espresso focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden sm:hidden pt-4 pb-2 border-t retro-divider mt-4">
+        <div class="flex flex-col space-y-3 text-sm">
+          <a href="index.html#gallery" class="retro-nav-link block py-2">Work</a>
+          <a href="bio.html" class="retro-nav-link block py-2" aria-current="page">Bio</a>
+          <a href="booknow.html" class="btn-retro-primary w-full py-2.5 text-xs">
+            Book Now
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- BIO SECTION -->
+      <section id="about" class="py-12 md:py-20 border-b retro-divider">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+          <!-- Image Placeholder -->
+          <div class="md:col-span-5 lg:col-span-4">
+            <div class="retro-panel aspect-square overflow-hidden flex items-center justify-center">
+              <img 
+                src="https://via.placeholder.com/600x600?text=Tim+Photo+Placeholder" 
+                alt="Tim Arndt tattooing a client in his shop" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <!-- Bio Text -->
+          <div class="md:col-span-7 lg:col-span-8 flex flex-col justify-center space-y-4">
+            <h1 class="font-retro-display text-4xl sm:text-5xl font-black tracking-tight">Tim Arndt</h1>
+            <p class="font-retro-mono text-xs sm:text-sm font-bold text-terracotta uppercase tracking-wider">
+              Tattoo artist based in Denver, CO
+            </p>
+            <p class="text-base sm:text-lg text-espresso leading-relaxed">
+              I have been tattooing since 2020. Formally trained in painting, I specialize in anything from minimalist designs to bold, custom pieces.
+            </p>
+            <p class="text-base sm:text-lg text-espresso leading-relaxed">
+              My goal is to create thoughtful tattoos tailored to each client's unique vision. I'm passionate about bringing ideas to life through tattoos and delivering a clean and professional experience for all of my clients.
+            </p>
+            <div class="pt-4">
+              <a href="booknow.html" class="btn-retro-primary px-6 py-3 text-xs">
+                Book an Appointment
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-10 text-sm text-espresso-muted">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 font-retro-mono text-xs">
+          <a href="mailto:catfish.tim.tattoos@gmail.com" class="flex items-center gap-2 text-espresso hover:text-terracotta transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            catfish.tim.tattoos@gmail.com
+          </a>
+          <a href="https://instagram.com/catfish.tim" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-espresso hover:text-terracotta transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @catfish.tim
+          </a>
+        </div>
+        <div>
+          <p class="font-retro-mono text-xs">© Catfish Tim Tattoos. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
