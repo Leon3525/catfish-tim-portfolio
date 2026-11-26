@@ -1,10 +1,17 @@
 /* ==========================================================================
-   1. GOOGLE FONTS IMPORT
-   - Alfa Slab One: Heavy, condensed western slab-serif for Hero & Headers
-   - Plus Jakarta Sans: Clean, warm geometric sans for readable body copy
-   - Space Mono: Vintage receipt/flash-sheet monospace for tags & labels
+   1. FONTS IMPORT & LOCAL CUSTOM FONT
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Playwrite+IN:wght@100..400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@font-face {
+  font-family: 'Durango Western Eroded';
+  src: url('fonts/DurangoWesternEroded.otf') format('opentype');
+  /* If your file is .ttf instead of .otf, swap the line above for:
+  src: url('fonts/DurangoWesternEroded.ttf') format('truetype'); */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ==========================================================================
    2. COLOR PALETTE & DESIGN TOKENS
@@ -20,10 +27,12 @@
   --accent-terracotta-dark: #A84623;
   --border-subtle: rgba(35, 26, 22, 0.22);
 
-  --font-display: 'Alfa Slab One', Georgia, serif;
+  --font-display: 'Durango Western Eroded', 'Alfa Slab One', Georgia, serif;
+  --font-subhead: 'Alfa Slab One', Georgia, serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Space Mono', monospace;
 }
+
 
 /* ==========================================================================
    3. BASE STYLES & VINTAGE PAPER TEXTURE
@@ -63,44 +72,30 @@ body::before {
 }
 
 /* ==========================================================================
-   4. TYPOGRAPHY CLASSES (BOLD WESTERN SLAB SERIF)
+   4. TYPOGRAPHY CLASSES
    ========================================================================== */
 .font-retro-display {
   font-family: var(--font-display);
   font-weight: 400;
+  line-height: 1.25;
   letter-spacing: 0.03em;
   color: var(--ink-espresso);
   text-shadow: 3px 3px 0px rgba(200, 90, 50, 0.35);
-  /* Subtle weathered/eroded western stamp texture */
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='erode'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.85'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23erode)'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='erode'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.85'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23erode)'/%3E%3C/svg%3E");
 }
 
+
 .font-retro-serif {
-  font-family: var(--font-display);
+  font-family: var(--font-subhead);
   font-weight: 400;
   letter-spacing: 0.02em;
 }
 
-.font-retro-mono {
-  font-family: var(--font-mono);
+.font-handwriting {
+  font-family: 'Playwrite IN', cursive;
+  font-weight: 400;
 }
 
-.text-espresso {
-  color: var(--ink-espresso);
-}
 
-.text-espresso-muted {
-  color: var(--ink-muted);
-}
-
-.text-turquoise {
-  color: var(--accent-turquoise);
-}
-
-.text-terracotta {
-  color: var(--accent-terracotta);
-}
 
 /* ==========================================================================
    5. NAVIGATION & DIVIDERS

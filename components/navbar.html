@@ -1,0 +1,37 @@
+<header class="retro-header py-4 sticky top-0 z-40">
+  <nav class="flex items-center justify-between" aria-label="Main Navigation">
+    <a href="index.html" class="font-retro-display text-2xl tracking-tight uppercase focus:outline-none">
+      CT
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden sm:flex items-center gap-6 text-sm">
+      <a href="index.html#gallery" class="retro-nav-link">Work</a>
+      <a href="bio.html" class="retro-nav-link">Bio</a>
+      <a href="booknow.html" class="btn-retro-primary px-4 py-2 text-xs">
+        Book Now
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="mobile-menu-btn" type="button" class="sm:hidden p-2 -mr-2 text-espresso focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+      <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg id="menu-icon-close" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Dropdown Menu (Centered Items) -->
+  <div id="mobile-menu" class="hidden sm:hidden pt-4 pb-2 border-t retro-divider mt-4">
+    <div class="flex flex-col items-center text-center space-y-3 text-sm">
+      <a href="index.html#gallery" class="retro-nav-link block w-full py-2">Work</a>
+      <a href="bio.html" class="retro-nav-link block w-full py-2">Bio</a>
+      <a href="booknow.html" class="btn-retro-primary w-full py-2.5 text-xs">
+        Book Now
+      </a>
+    </div>
+  </div>
+</header>

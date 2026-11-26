@@ -1,31 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.__catfishTimInit) return;
+  window.__catfishTimInit = true;
+
   /* ========================================================================
-     1. MOBILE HAMBURGER MENU
+     1. LOAD SHARED COMPONENTS (NAVBAR & FOOTER) + MOBILE MENU
      ======================================================================== */
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIconOpen = document.getElementById('menu-icon-open');
-  const menuIconClose = document.getElementById('menu-icon-close');
+  const loadComponent = async (placeholderId, filePath) => {
+    const placeholder = document.getElementById(placeholderId);
+    if (!placeholder) return false;
 
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.classList.toggle('hidden');
-      menuIconOpen.classList.toggle('hidden');
-      menuIconClose.classList.toggle('hidden');
-    });
+    try {
+      const response = await fetch(filePath);
+      if (!response.ok) throw new Error(`Failed to load ${filePath} (${response.status})`);
+      const html = await response.text();
+      placeholder.outerHTML = html;
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
 
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menuBtn.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.add('hidden');
-        menuIconOpen.classList.remove('hidden');
-        menuIconClose.classList.add('hidden');
+  const highlightActiveNav = () => {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    if (currentPage === 'bio.html' || currentPage === 'bio') {
+      document.querySelectorAll('header a[href="bio.html"]').forEach(link => {
+        link.setAttribute('aria-current', 'page');
+        if (!link.closest('#mobile-menu')) {
+          link.classList.add('underline', 'underline-offset-4', 'decoration-2');
+        }
       });
-    });
-  }
+    } else if (currentPage === 'booknow.html' || currentPage === 'booknow') {
+      document.querySelectorAll('header a[href="booknow.html"]').forEach(link => {
+        link.setAttribute('aria-current', 'page');
+      });
+    }
+  };
+
+  loadComponent('navbar-placeholder', 'components/navbar.html').then(() => {
+    highlightActiveNav();
+  });
+  loadComponent('footer-placeholder', 'components/footer.html');
+
+  // Event delegation for mobile hamburger menu
+  document.addEventListener('click', (e) => {
+    const menuBtn = e.target.closest('#mobile-menu-btn');
+    if (menuBtn) {
+      const header = menuBtn.closest('header') || document;
+      const mobileMenu = header.querySelector('#mobile-menu');
+      const menuIconOpen = header.querySelector('#menu-icon-open');
+      const menuIconClose = header.querySelector('#menu-icon-close');
+
+      if (!mobileMenu) return;
+
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!isExpanded));
+      mobileMenu.classList.toggle('hidden');
+      if (menuIconOpen) menuIconOpen.classList.toggle('hidden');
+      if (menuIconClose) menuIconClose.classList.toggle('hidden');
+      return;
+    }
+
+    const mobileLink = e.target.closest('#mobile-menu a');
+    if (mobileLink) {
+      const header = mobileLink.closest('header') || document;
+      const btn = header.querySelector('#mobile-menu-btn');
+      const mobileMenu = header.querySelector('#mobile-menu');
+      const menuIconOpen = header.querySelector('#menu-icon-open');
+      const menuIconClose = header.querySelector('#menu-icon-close');
+
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      if (mobileMenu) mobileMenu.classList.add('hidden');
+      if (menuIconOpen) menuIconOpen.classList.remove('hidden');
+      if (menuIconClose) menuIconClose.classList.add('hidden');
+    }
+  });
 
   /* ========================================================================
      2. GALLERY VIEW TOGGLE (GRID VS. CAROUSEL)
